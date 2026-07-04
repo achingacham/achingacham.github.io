@@ -62,6 +62,9 @@ div.bibinfo pre { clear:both; }
 
 /* Custom styles
 -------------------------------------------------- */
+.social-icons {
+  padding-left: 0;
+}
 .social-icons li {
   display: inline;
 }
@@ -112,11 +115,23 @@ div.bibinfo pre { clear:both; }
 }
 
 .bg-udc {
-  background-color: #6d0a49 !important;
+  background-color: #14213d !important;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .display-5{font-size:2rem;font-weight:300;line-height:1.2}
 .display-6{font-size:1.4rem;font-weight:300;line-height:1.2}
+
+h1, h2, h3, h4, h5, h6,
+.display-5, .display-6,
+.timeline-title, .timeline-subtitle, .timeline-subsubtitle {
+  font-family: 'Lora', Georgia, serif;
+}
 .navbar-toggler {
   text-align: center;
 
@@ -130,11 +145,11 @@ div.bibinfo pre { clear:both; }
   color: #fff;
 }
 .nav-link:hover{
-  color: #ffa8d5;
+  color: #7ea6d8;
 }
 
 a {
-  color: #e10879;
+  color: #14487a;
 }
 
 /* Sticky footer styles
@@ -175,6 +190,12 @@ code {
   font-size: 80%;
 }
 
+#bibtex {
+  font-family: inherit;
+  font-weight: 300;
+  white-space: pre-wrap;
+}
+
 /* timelinelist
 -----------------------------------------------------*/
 
@@ -193,7 +214,7 @@ ul.clist > li:before {
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #e10879;
+    border: 3px solid #14487a;
     left: 20px;
     width: 20px;
     height: 20px;
@@ -228,7 +249,7 @@ ul.timelinelist > li:before {
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #e10879;
+    border: 3px solid #14487a;
     left: 20px;
     width: 20px;
     height: 20px;
