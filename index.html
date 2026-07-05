@@ -1,517 +1,372 @@
 <!DOCTYPE html>
-<!--
- - File              : index.html
- - Author            : Anupama Chingacham <achingacham@lsv.uni-saarland.de>
- - Last Modified Date: Mon Jul  3 01:08:28 CEST 2023
--->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Personal/Professional website of Anupama Chingacham (AC)">
-    <meta name="author" content="AC customized the template that was shared by Marcos Horro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anupama Chingacham</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181B;
+    --ink-text:#F2F1EC;
+    --ink-muted:#9BA3A8;
+    --paper:#F7F6F3;
+    --line:#DDD9D2;
+    --text:#20242A;
+    --muted:#5B6570;
+    --signal:#52B3A9;
+    --signal-dark:#1E5C57;
+    --amber:#D9A441;
+    --amber-text:#6B4E12;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Lora', Georgia, serif;
+    line-height:1.65;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.03em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
 
-    <title>Anupama Chingacham</title>
+  /* nav */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(247,246,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  nav .brand{font-size:14px; font-weight:500;}
+  nav .links{display:flex; gap:22px; font-size:12px; text-transform:uppercase;}
+  nav .links a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent;}
+  nav .links a:hover{color:var(--signal-dark); border-bottom:1px solid var(--signal-dark);}
+  nav .cv{
+    font-size:12px; text-transform:uppercase; text-decoration:none;
+    color:var(--text); border:1px solid var(--text); padding:7px 14px;
+    white-space:nowrap;
+  }
+  nav .cv:hover{background:var(--text); color:var(--paper);}
+  @media(max-width:640px){ nav .links{display:none;} }
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  /* hero */
+  header.hero{
+    background:var(--ink); color:var(--ink-text);
+    padding:88px 0 64px;
+  }
+  .hero-grid{display:flex; align-items:flex-start; gap:48px;}
+  .hero-text{flex:1 1 auto; min-width:0;}
+  .hero-photo{flex:0 0 auto; width:220px; display:flex; flex-direction:column; gap:20px;}
+  .hero-photo img{
+    width:220px; height:220px; object-fit:cover;
+    border:1px solid rgba(255,255,255,0.25);
+  }
+  .hero-photo .cta-row{flex-direction:column; margin-bottom:0;}
+  .hero-photo .btn{text-align:center;}
+  @media(max-width:720px){
+    .hero-grid{flex-direction:column; align-items:flex-start; gap:32px;}
+    .hero-photo{width:160px;}
+    .hero-photo img{width:160px; height:160px;}
+  }
+  .eyebrow{font-size:12px; text-transform:uppercase; color:var(--signal); margin:0 0 18px;}
+  h1{font-size:44px; font-weight:500; margin:0 0 14px; line-height:1.15;}
+  .tagline{font-size:19px; font-style:italic; color:var(--ink-muted); margin:0 0 34px; max-width:100%;}
+  .status{
+    display:inline-block; font-size:12px; text-transform:uppercase;
+    border:1px solid var(--signal); color:var(--signal); padding:6px 12px; margin-bottom:34px;
+  }
+  .cta-row{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:40px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; text-decoration:none;
+    padding:11px 20px; display:inline-block; border:1px solid var(--ink-text);
+  }
+  .btn.primary{background:var(--signal); border-color:var(--signal); color:var(--ink);}
+  .btn.primary:hover{background:#52B3A9;}
+  .btn.ghost{color:var(--ink-text);}
+  .btn.ghost:hover{background:rgba(255,255,255,0.08);}
 
-    <!-- Heading font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  .social-row{display:flex; flex-wrap:wrap; gap:0; font-size:13px;}
+  .social-row a{text-decoration:none; color:var(--ink-muted); padding:0 14px 0 0; margin-right:14px; border-right:1px solid rgba(255,255,255,0.2);}
+  .social-row a:last-child{border-right:none;}
+  .social-row a:hover{color:var(--ink-text);}
 
-    <!-- Custom styles for this template -->
-    <link href="css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  </head>
-
-  <body>
-    <!-- header -->
-    <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md fixed-top bg-dark bg-udc">
-        <div class="container">
-          <!-- <a class="navbar-brand" href="https://www.udc.gal/">
-            <img src="img/udc.png" width="200" height="30" alt="UDC">
-          </a> -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i></button>
-    		  
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              
-              
-
-              <li class="nav-item">
-              <a class="nav-link" href="#news">News</a>
-              </li>
-              
-              
-              <li class="nav-item">
-              <a class="nav-link" href="#pubs">Publications</a>
-              </li>
-
-              <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects<span class="sr-only">(current)</span></a>
-              </li>
-                
-              <li class="nav-item">
-                <a class="nav-link" href="#volunteerism">Volunteerism</a>
-                </li>
-                
-              
-              <li class="nav-item">
-              <a class="nav-link" href="#gallery">Gallery</a>
-              </li>
-            
-              <li class="nav-item">
-                <a class="nav-link" href="#education">Experience</a>
-                </li>
-  
-          
-            </ul>
-          </div>
-          
-          <!-- <a class="navbar-brand" href="https://www.uni-saarland.de/en/home.html">
-             <embed src="img/logo_uds.png" width="162" height="30" /> 
-    			  <img src="img/logo_uds.png" width="162" height="30" alt="UdS">
-          </a>  -->
-        </div>
-    	</nav>
-    </header>
-
-    <!-- Begin page content -->
-    <main role="main" class="container">
-    <div class="row">
-      <div class="col-4 mx-auto d-block">
-        <div class="row mt-5 mx-auto d-block text-center">
-          <img src="img/AC_profile_pic_2.jpg" class="img-fluid rounded-circle mb-3 profile-pic" width="150" height="150" alt="Profile picture">
-          <h4>Anupama Chingacham </h4>
-          <!-- <p class="lead"> (<a href="https://sfb1102.uni-saarland.de/"><abbr title="SFB member">SFB 1102</abbr></a>)
-          </p> -->
-          <!-- <p class="font-weight-light">Saarland University(<a href="https://www.uni-saarland.de/en/home.html"><abbr title="Universität des Saarlandes">UdS</abbr></a>) 
-            <!-- <br>
-            Spoken Language Systems (<a href="https://www.lsv.uni-saarland.de/"><abbr title="Spoken Language Systems">LSV</abbr></a>)
-            <br>
-            Chair of Computational Linguistics (<a href="https://www.uni-saarland.de/lehrstuhl/demberg/members/verademberg.html"><abbr title="Computational Linguistics">CoLi</abbr></a>)
-          </p> -->
-
-        </div>
-        <hr>
-        <div class="row mx-auto d-block">
-        <p class="lead text-center "><a href="mailto:achingacham@gmail.com"><i class="far fa-envelope"></i></a>
-        <br>
-        <font size="-1"> achingacham [at] gmail [dot] com </font>  
-        </p>
-        <ul class="social-icons text-center">
-          	<li><a class="scholar" href="https://scholar.google.com/citations?user=TTyMz08AAAAJ&hl=en" title="Scholar">Scholar</a></li>
-          	<li><a class="linkedin" href="https://www.linkedin.com/in/anupama-chingacham/" title="Linkedin">LinkedIn</a></li>
-          	<li><a class="researchgate" href="https://www.researchgate.net/profile/Anupama-Chingacham" title="ResearchGate">ResearchGate</a></li>
-          	<!-- <li><a class="twitter" href="https://twitter.com/AChingacham" title="Twitter">Twitter</a></li> -->
-          	<!-- <li><a class="orcid" href="https://orcid.org/0000-0003-3414-403X" title="ORCID">ORCID</a></li> -->
-            <!-- <li><a class="instagram" href="" title="Instagram">Instagram</a></li> -->
-          	
-        </ul>
-         <!--
-         <p>
-         <span style="color: red;">&#x21;</span> 
-         <span style="color: red;">&#x21;</span>
-          As of Nov 14th, 2024, My LinkedIn access is temporarily blocked! I am working on fixing this issue.
-         </p>
-         -->
-         
-        <!-- <hr>
-
-        <p class="text-center font-weight-light">
-      	
-        <i class="far fa-flag"></i> Proud <b><a href="https://www.google.es/maps/place/Galicia/@42.7944603,-9.138824,8z/data=!3m1!4b1!4m5!3m4!1s0xd2e7c868908156b:0xe1ac7930138c9642!8m2!3d42.5750554!4d-8.1338558">Galician</a></b> 
-      	<br>
-        <br> 
-
-      	<i class="far fa-user-circle"></i> <a href="http://gac.udc.es/~marcos.horro/cvpage/" alt="CV">Interactive CV</a><br>
-        <i class="fas fa-birthday-cake"></i> Since 1994<br><br>
-        <i class="far fa-futbol"></i>	<a href="https://www.rcdeportivo.es/">Football</a> and <i class="fas fa-motorcycle"></i> <a href="http://www.valentinorossi.com/en/">motorcycle</a><br>
-        <i class="fab fa-blogger"></i> <a href="http://blog.marcoshorro.com/" alt="Blog">Personal blog</a> (spanish)
-        
-        </p>  --> 
-        <hr>
-        <!-- <p class="text-monospace">
-          Building C 7.1 <br>
-          Saarland University <br>
-          Saarbrücken <br>
-          Germany, 66123 <br>
-        </p> -->
-        <!-- <a href="https://stackoverflow.com/users/2856041/horro">
-    	  <img class="separator" src="https://stackoverflow.com/users/flair/2856041.png" width="208" height="58" alt="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-        </a> -->
-        <hr>
-      </div>
-      </div>
-      <div class="col-8">
-        
-
-        <!-- <section id="teach" class="mt-5">
-          <h3 class="display-5">Teaching</h3>
-          <hr>
-          <h4>Course <span class="badge badge-secondary">2018/2019</span></h4>
-          <ul class="clist">
-            <li>Programación Integrativa <a
-href="https://guiadocente.udc.es/guia_docent/index.php?centre=614&ensenyament=614G01&assignatura=614G01049&idioma=cast&any_academic=2018_19"
-class="badge badge-info">Planning</a> <a href="https://moodle.udc.es/course/view.php?id=51658" class="badge
-badge-primary">Moodle</a>
-</li>
-          </ul>
-        </section> -->
-
-        <section id="about" class="mt-5">
-          <h3 class="display-5">Hello World!</h3><hr>
-          <p class="font-weight-light">
-          
-          I am Anupama Chingacham, an applied Machine Learning researcher, with a PhD in Computer Science at Saarland University, Germany. In collaboration with my Ph.D. advisors, Prof. Dietrich Klakow and Prof. Vera Demberg, my current research focuses on using paraphrases to improve speech perception in noise. I am very honored to have received a Best Student Paper Award at INTERSPEECH 2021. Previously, I did a research internship at Loria (CNRS), obtained an MSc from the University of Lorraine (France) and an MSc from Vellore Institute of Technology (India).
-
-          My current research aims to build better solutions for noise-adaptive spoken dialogue systems that are more considerate to the difficulties of human listeners in noisy conditions. I am also keen on understanding the limits and possibilities of employing Large Language Models (LLMs) to generate text with non-textual attributes (eg: audibility), especially in low-resource settings.  
-           <br/>
-           <br/>
-           
-           <!-- My current research aims to build better solutions for <b><i>noise-adaptive spoken dialogue systems</i></b> that are more considerate to the difficulties of human listeners in noisy conditions.
-           I am also keen on understanding the limits and possibilities of employing Large Language Models (LLMs) to <b><i>generate text with non-textual attributes</i></b> (eg: audibility), especially in low-resource settings.
-            -->
-      
-            
-            
-           </p>
-          </section>
-
-
-        <section id="news" class="mt-5">
-          <h3 class="display-5">News</h3><hr>
-          <div class="font-weight-light">
-
-           <ul class="list">
-              <li> <span class="badge badge-primary">May 2025</span> Invited talk at Carl von Ossietzky University of Oldenburg, Germany. </li> 
-              </ul>
-         
-           <ul class="list">
-              <li> <span class="badge badge-primary">Dec 2024</span> My PhD Defense! <i> Hybrid (Germany, USA, India) </i>. </li> 
-              </ul>
-
-          <ul class="list">
-              <li> <span class="badge badge-primary">August 2024</span> My first presentation at <b> ACL </b> <i> Thailand </i>. </li> 
-              </ul> 
-         
-            <ul class="list">
-              <li> <span class="badge badge-primary">Jan 2024</span> Invited talk at the 15th Speech in Noise Workshop in <i> Potsdam, Germany</i>. </li> 
-              </ul> 
-
-            <ul class="list">
-              <li> <span class="badge badge-primary">Dec 2023</span> Invited talk at Databases and Information Systems group in <i>IIT Palakkad, India</i>. </li> 
-              </ul> 
-           
-          <ul class="list">
-          <li> <span class="badge badge-primary">June 2023</span> Invited talk at EXPRESSION team in  <i> IRISA, France</i>. </li> 
-          </ul>  
-        
-          <ul class="list">
-          <li> <span class="badge badge-primary">Jan 2023</span> Invited talk at COG-MHEAR team in <i> Edinburgh Napier University, United Kingdom </i>. </li> 
-          </ul> 
-
-          <ul class="list">
-            <li> <span class="badge badge-primary">Jan 2023</span> Poster presentation at <i>IEEE SLT, Qatar</i>. </li> 
-          </ul> 
-          
-        
-          <ul class="list">
-          <li class="fas fa-trophy"> <span class="badge  badge-info">Sept 2021</span> Our work received a Best Student Paper award at Interspeech!! </li> 
-          </ul> 
-          
-          <ul class="list">
-            <li> <span class="badge badge-primary">Sept 2021</span> My first paper presentation at <i> Interspeech, Czechia </i> (hybrid). </li> 
-            </ul> 
-            
-          <ul class="list">
-          <li> <span class="badge badge-primary">Dec 2018</span> My first poster presentation at <i> CLiC-it, Italy </i>! </li> 
-          </ul> 
-              
-         
-      </section>
-
-        <section id="pubs" class="mt-5">
-          <h3 class="display-5">Publications</h3>
-          <hr>
-          <!-- <table id="pubTable" class="display"></table> -->
-          <pre id="bibtex">
-
-
-Human Speech Perception in Noise: Can Large Language Models Paraphrase to Improve It?
-<b>Chingacham, Anupama</b> and Zhang, Miaoran and Demberg, Vera and Klakow, Dietrich
-<i>To appear in Proceedings of the Human-Centered Large Language Modeling Workshop <b>(HuCLLM @ ACL)</b>, 2024</i>
-<br>
-  
-A Data-Driven Investigation of Noise-Adaptive Utterance Generation with Linguistic Modification
-<b>Chingacham, Anupama</b> and Demberg, Vera and Klakow, Dietrich
-<i>Ninth IEEE Spoken Language Technology Workshop, 2023</i>
-<br>
-Exploring the Potential of Lexical Paraphrases for Mitigating Noise-Induced Comprehension Errors
-<b>Chingacham, Anupama</b> and Demberg, Vera and Klakow, Dietrich
-<i>22nd INTERSPEECH Conference, 2021</i>
-<br>
-Generalizing Representations of Lexical Semantic Relations
-<b>Chingacham, Anupama</b> and Paperno, Denis
-<i>Fifth Italian Conference on Computational Linguistics, 2018</i>
-
-</pre>
-
-<!-- @inproceedings{chingacham2023data,
-    title={A Data-Driven Investigation of Noise-Adaptive Utterance Generation with Linguistic Modification},
-    author={Chingacham, Anupama and Demberg, Vera and Klakow, Dietrich},
-    booktitle={2022 IEEE Spoken Language Technology Workshop (SLT)},
-    pages={353--360},
-    year={2023},
-    organization={IEEE}
+  .wave{margin-top:44px; opacity:0.9;}
+  .wave-track{
+    animation:scrollWave 9s linear infinite;
+  }
+  @keyframes scrollWave{to{transform:translateX(-500px);}}
+  @media (prefers-reduced-motion: reduce){
+    .wave-track{animation:none;}
   }
 
-  @inproceedings{chingacham21_interspeech,
-    author={Anupama Chingacham, Vera Demberg, Dietrich Klakow},
-    title={{Exploring the Potential of Lexical Paraphrases for Mitigating Noise-Induced Comprehension Errors}},
-    year=2021,
-    booktitle={Proc. Interspeech 2021},
-    pages={1713--1717},
-    doi={10.21437/Interspeech.2021-306}
+  section{padding:60px 0;}
+  h2{font-size:13px; text-transform:uppercase; color:var(--signal-dark); margin:0 0 26px; font-family:'IBM Plex Mono',monospace; font-weight:500;}
+  section.about p{max-width:100%; font-size:17px;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    border:1px solid var(--line); padding:6px 12px; color:var(--muted);
   }
 
-  @inproceedings{chingacham2018generalizing,
-    title={Generalizing Representations of Lexical Semantic Relations},
-    author={Chingacham, Anupama and Paperno, Denis},
-    journal={Computational Linguistics CLiC-it 2018},
-    pages={111},
-    year={2018}
-  } -->
-  
+  .award{
+    margin-top:26px; border-left:3px solid var(--amber); padding:14px 18px;
+    background:#FBF3E4; font-size:15px; color:var(--amber-text); max-width:640px;
+  }
+
+  /* news timeline */
+  .news-item{display:grid; grid-template-columns:140px 1fr; gap:20px; padding:16px 0; border-top:1px solid var(--line); align-items:baseline;}
+  .news-item:last-of-type{border-bottom:1px solid var(--line);}
+  .news-date{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--muted); white-space:nowrap;}
+  .news-text{font-size:16px;}
+  .placeholder{color:var(--muted); font-style:italic;}
+
+  .news-more summary{
+    list-style:none; cursor:pointer; padding:14px 0 0;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
+    color:var(--signal-dark);
+  }
+  .news-more summary::-webkit-details-marker{display:none;}
+  .news-more summary::before{content:'+ Show earlier news';}
+  .news-more[open] summary::before{content:'– Hide earlier news';}
+  .news-more[open] summary{padding-bottom:4px;}
+
+  /* publications */
+  .pub-card{
+    border:1px solid var(--line); padding:20px 22px; margin-bottom:14px; background:#fff;
+  }
+  .pub-title{font-size:17px; font-weight:500; margin:0 0 10px;}
+  .pub-authors{font-size:14px; color:var(--muted); margin:0 0 8px;}
+  .pub-authors b{color:var(--text); font-weight:600;}
+  .pub-venue{font-size:13px; font-style:italic; color:var(--signal-dark); margin:0;}
+  .pub-links{display:flex; gap:16px; font-family:'IBM Plex Mono', monospace; font-size:12px;}
+  .pub-links a{text-decoration:none; color:var(--signal-dark); border-bottom:1px solid var(--signal-dark);}
+
+  /* contact / footer */
+  footer{background:var(--ink); color:var(--ink-text); padding:64px 0 40px;}
+  footer h2{color:var(--signal);}
+  footer p{max-width:100%; font-size:17px; color:var(--ink-muted);}
+  footer .cta-row{margin-top:26px;}
+  .copyright{margin-top:50px; font-size:12px; color:var(--ink-muted); font-family:'IBM Plex Mono', monospace;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand mono">A. CHINGACHAM</span>
+    <div class="links mono">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <!-- TODO 1 <a class="cv mono" href="#">Download CV</a> -->
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-photo">
+        <img src="img/AC_profile_pic_2.jpg" alt="Anupama Chingacham">
+        <div class="cta-row">
+          <!-- TODO 1 <a class="btn primary" href="#">Download CV</a> -->
+          <a class="btn ghost" href="mailto:achingacham@gmail.com">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-text">
+        <p class="eyebrow mono">Applied Machine Learning Researcher &middot; Speech &amp; Language Processing &middot; Human-Centered AI</p>
+        <h1>Anupama Chingacham</h1>
+        <!-- <p class="tagline">Using paraphrases to make speech easier to understand in noise.</p> -->
+        <p class="tagline">I build AI systems that are more accessible and inclusive.</p>
         
-        <section id="projects" class="mt-5">
-          <h3 class="display-5">Projects</h3><hr>
-          <ul class="timelinelist">
-            <li><a href="https://github.com/SFB1102/A4-ParaphrasesinNoise">PiN: Paraphrases in Noise</a> <span class="badge badge-info">Dataset</span> - annotated with sentence-level intelligibility of sentential-paraphrases in noisy environments.</li>
-            <li><a href="https://github.com/SFB1102/A4-SynonymsInNoise">SiN: Synonyms in Noise</a> <span class="badge badge-info">Dataset</span> - annotated with word intelligibility of synonyms in noisy listening setups. </li>
-            <li><a href="https://github.com/achingacham/SemRelationExtraction">Relational Representations</a> <span class="badge badge-success"> Python, PyTorch </span> - an extended Skip-gram model to represent semantic relation between two lexical units.</li>
-            <!-- <li><a href="https://github.com/achingacham/SP_SYNTAX_PAR">Semantic Parser</a> <span class="badge badge-success">Python, OpenNMT</span> - a   </li> -->
-          </ul>
-        </section>
-        
-        <br>
-
-        <section id="volunteerism" class="mt-5">
-          <h3 class="display-5">A growing list of my volunteerism</h3><hr>
-          <p class="font-weight-light">
-           
-            <ul class="list">
-              <li> <span class="badge badge-primary">July 2024 - June 2025</span> Club VP of Mentoring @ <a href="https://www.toastmasters.org/"> Toastmasters International </a> </li> 
-              </ul>
-
-            <ul class="list">
-              <li> <span class="badge badge-primary">Feb 2023 - June 2025</span> Member @ <a href="https://www.toastmasters.org/"> Toastmasters International </a> </li> 
-              </ul>  
-              
-          
-          <ul class="list">
-          <li> <span class="badge badge-primary">Jan 2023 - June 2024</span> Language  teacher @ <a href="https://www.kaow.org/malayalamschool.html">Malayalam School </a> </li> 
-          </ul>  
-            
-          <ul class="list">
-          <li> <span class="badge badge-primary">Oct 2021 - Dec 2022</span> Member @  <a href="https://isca-speech.org/iscaweb/index.php/student-section">ISCA-SAC Mentoring Team</a> </li> 
-          </ul>  
-        
-            
-          <ul class="list">
-          <li> <span class="badge badge-primary">Feb 2019 - June 2022</span> PhD Representative @ <a href="https://sfb1102.uni-saarland.de/">SFB 1102</a> </li> 
-          </ul> 
-              
-          <ul class="list">
-            <li> <span class="badge badge-primary">Feb 2015 - June 2016</span> Mentor @  <a href="https://mentortogether.org/">Mentor Together</a> </li> 
-            </ul> 
-          
-            <ul class="list">
-              <li> <span class="badge badge-primary">Feb 2011 - June 2014</span> Tutor @ <a href="https://makeadiff.in/">Make A Difference</a> </li> 
-              </ul> 
-              
-      </section>
-
-      
-        <section id="education" class="mt-5">
-          <h3 class="display-5">Experience</h3>
-          <hr>
-          <ul class="timeline">
-            
-            <li class="timeline-inverted">
-              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Doctoral studies</h4>
-                  <h5 class="timeline-subtitle">University of Saarland, Germany</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Oct 2018 - Dec 2024</small></p>
-                </div>
-                <div class="timeline-body">
-                  <i class="far fa-dot-circle"></i> Pi-SPIN: Paraphrase to improve Speech Perception in Noise.
-                </div>
-              </div>
-            </li>
-            <li class="timeline">
-              <div class="timeline-badge primary"><i class="fas fa-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Research Intern</h4>
-                  <h5 class="timeline-subtitle">Loria, CNRS, France</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Feb 2018 - July 2018 </small></p>
-                </div>
-                <div class="timeline-body">
-                  <p> 
-                    <i class="far fa-dot-circle"></i> Explored an unsupervised method to represent lexical relations.</p>
-                    <i class="fas fa-trophy"></i> Published our findings at CLiC-it conference.
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">MSc Natural Language Procesing </h4>
-                  <h5 class="timeline-subtitle">Lorraine University, France</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Sept 2017 - July 2018 </small></p>
-                </div>
-                <div class="timeline-body">
-                    <i class="far fa-dot-circle"></i> Acquired knowledge on data modeling techniques and its application on NLP problems like for semantic parsing. <br>
-                </div>
-              </div>
-            </li>
-            <li class="timeline">
-              <div class="timeline-badge primary"><i class="fas fa-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Networking Engineer Consultant</h4>
-                  <h5 class="timeline-subtitle">Cisco Systems Pvt Ltd (India)</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Sept 2014 - Aug 2017 </small></p>
-                </div>
-                <div class="timeline-body">
-                  <i class="far fa-dot-circle"></i> Automated applications migration plan generation. <br>
-                  <i class="far fa-dot-circle"></i> Orchestrated application migration for multiple service providers. <br>
-                </div>
-              </div>
-            </li>
-            <li class="timeline">
-              <div class="timeline-badge primary"><i class="fas fa-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Internship</h4>
-                  <h5 class="timeline-subtitle">Cisco Systems Pvt Ltd (India)</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> June 2014 - Sept 2014 </small></p>
-                </div>
-                <div class="timeline-body">
-                    <i class="fas fa-trophy"></i> Successfully completed <a href="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html">CCNA</a>, <a href="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/professional/ccnp-enterprise.html">CCNP</a> certifications. <br>
-                </div>
-              </div>
-            </li>
-
-            <li class="timeline-inverted">
-              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Masters in Software Engineering (5 Year Integrated) </h4>
-                  <h5 class="timeline-subtitle">Vellore Institute of Technology, India</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> 2009 - 2014 </small></p>
-                </div>
-                <div class="timeline-body">
-                    <i class="fas fa-trophy"></i> A recipient of Top 10 Academic Performers award for 4 years.<br>
-                    <i class="far fa-dot-circle"></i> CGPA: 9.2/10 <br>
-                </div>
-              </div>
-            </li>
-
-            <!-- <li class="timeline-inverted">
-              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Higher Secondary Education</h4>
-                  <h5 class="timeline-subtitle">Arokiamatha Convent School</h5>
-                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> 2007 - 2009 </small></p>
-                </div>
-                <div class="timeline-body">
-                    <i class="fas fa-trophy"></i> Recipient of School Topper award.<br>
-                    <i class="far fa-dot-circle"></i> Scored 96%.<br>
-                </div>
-              </div>
-            </li> -->
-        </ul>
-        </section>
-
-      </section>
-
-      <br>
-
-      
-      <section id="gallery" class="mt-5">
-        <h3 class="display-5">Gallery</h3><hr>
-        <p class="font-weight-light">
-         
-            
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/k-fBIfMlH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-          </iframe>
-          
-       
-    </section>
-
-
-        <br><br><br>
-        <p class="font-weight-light">          
-        <a href="https://github.com/markoshorro/academic-template"> Website built from Marcos Horro's template </a>
-         <!-- <br>
-         <i> <p style="color:#808080">Last updated Dec. 29 2021</p> </i> -->
-        </p>
-
+        <span class="status mono">PhD (Saarland University) &middot; Open to research scientist / engineer roles</span>
+        <div class="social-row mono">
+          <a href="https://scholar.google.com/citations?user=TTyMz08AAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://www.linkedin.com/in/anupama-chingacham/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.researchgate.net/profile/Anupama-Chingacham" target="_blank" rel="noopener">ResearchGate</a>
+          <a href="https://github.com/achingacham" target="_blank" rel="noopener">GitHub</a>
+          <!-- <a href="https://orcid.org/0000-0003-4567-8901" target="_blank">ORCID</a> -->
+          <!-- <a href="https://bsky.app/profile/achingacham.bsky.social" target="_blank">Bluesky</a> -->
+        </div>
       </div>
     </div>
-    </main>
 
-    <footer class="footer">
-      <div class="container">
-        <!-- <span class="text-muted"><i class="fas fa-university"></i> Saarland University </span> -->
+    <svg class="wave" width="100%" height="60" viewBox="0 0 500 60" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <path id="waveShape" fill="none" stroke="#52B3A9" stroke-width="2" stroke-linecap="round"
+          d="M0,30
+             C 6,30 9,16 15,16 S 24,30 30,30
+             S 39,6 45,6 S 54,30 60,30
+             S 69,22 75,22 S 84,30 90,30
+             S 99,10 105,10 S 114,30 120,30
+             S 129,18 135,18 S 144,30 150,30
+             S 159,4 165,4 S 174,30 180,30
+             S 189,20 195,20 S 204,30 210,30
+             S 219,12 225,12 S 234,30 240,30
+             S 249,24 255,24 S 264,30 270,30
+             S 279,8 285,8 S 294,30 300,30
+             S 309,19 315,19 S 324,30 330,30
+             S 339,14 345,14 S 354,30 360,30
+             S 369,26 375,26 S 384,30 390,30
+             S 399,10 405,10 S 414,30 420,30
+             S 429,21 435,21 S 444,30 450,30
+             S 459,25 465,25 S 474,30 480,30
+             S 494,29 500,30"/>
+      </defs>
+      <g class="wave-track">
+        <use href="#waveShape" x="0"/>
+        <use href="#waveShape" x="500"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p> I'm Anupama Chingacham, an early-career researcher working at the intersection of natural language processing and speech technology. I completed my PhD in Computer Science at Saarland University, advised by Prof. Dietrich Klakow and Prof. Vera Demberg, where my research focused on using paraphrases to improve speech perception in noise — building novel solutions for speech synthesizers that operatein real-world acoustic conditions.</p>
+    <p> My work centers on making language technology more human-aware — designing systems that adapt to how people actually perceive and process language, not just how they're expected to. Along the way, I received the Best Student Paper Award at INTERSPEECH 2021 for this work. </p> 
+    <p> I'm currently looking for research scientist positions in industry, with a focus on NLP more broadly — from language understanding and generation to applied dialogue and speech systems. I'm especially motivated by roles where research leads to systems that make life easier or better for the people who use them. </p>
+    <p> If you're working on something in this space, or think there might be a fit, I'd love to hear from you. </p>
+
+    <div class="award">Best Student Paper Award &middot; INTERSPEECH 2021</div>
+    <div class="chips mono">
+      <span class="chip">Speech technology</span>
+      <span class="chip">NLP</span>
+      <span class="chip">Paraphrase generation</span>
+      <span class="chip">Dialogue systems</span>
+      <!-- TODO 2 <span class="chip">[ + add your tools/languages ]</span> -->
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <h2>News</h2>
+    <div class="news-item">
+      <span class="news-date mono">May 2026</span>
+      <span class="news-text">Invited participant, Transforming Global Education Summit at <b>UN HQ in New York</b>, <i>USA</i>.</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date mono">May 2025</span>
+      <span class="news-text">Invited talk at <b>Carl von Ossietzky University of Oldenburg</b>, <i>Germany</i>.</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date mono">December 2024</span>
+      <span class="news-text">Defended my PhD thesis!</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date mono">August 2024</span>
+      <span class="news-text">Paper Presentation at <b>ACL 2024</b>, <i>Thailand</i>.</span>
+    </div>
+
+    <div class="news-item">
+      <span class="news-date mono">January 2024</span>
+      <span class="news-text">Invited talk at the <b>15th Speech in Noise Workshop</b>, <i>Potsdam, Germany</i>.</span>
+    </div>
+
+
+    <details class="news-more">
+      <summary></summary>
+
+      <div class="news-item">
+      <span class="news-date mono">December 2023</span>
+      <span class="news-text">Invited talk at the <b>Databases and Information Systems group</b>, <i>IIT Palakkad, India</i>.</span>
+    </div>
+
+      <div class="news-item">
+        <span class="news-date mono">June 2023</span>
+        <span class="news-text">Invited talk at the <b>EXPRESSION team</b>, <i>IRISA, France</i>.</span>
       </div>
-    </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bibtex.js"></script>
-<script type="text/javascript">
- var init = function() {
-   bibtexify("#bibtex", "pubTable", {});
- };
- if (window.addEventListener) {
-   window.addEventListener('load', init, false);
- } else if (window.attachEvent) {
-   window.attachEvent('onload', init);
- }
-</script>
-<script>
-jQuery("#pubTable").on("click", "a", function(e) {
-  var $n = jQuery(this),
-      text = $n.text().toUpperCase();
-  if (text === "X") { return; }
-  try {
-    _gaq.push(['_trackEvent', "PublicationAction", text]);
-} catch(err){ }
-  if ($n.attr("href") !== "#") {
-    setTimeout(function() {
-      document.location.href = $n.attr("href");
-    }, 100);
-    return false;
-  }
-});
-</script>
-  </body>
+      <div class="news-item">
+        <span class="news-date mono">January 2023</span>
+        <span class="news-text">Invited talk at the <b>COG-MHEAR team</b>, <i>Edinburgh Napier University, UK</i>.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date mono">January 2023</span>
+        <span class="news-text">Poster presentation at <b>IEEE SLT</b>, <i>Qatar</i>.</span>
+      </div>
+
+
+      <div class="news-item">
+        <span class="news-date mono">September 2021</span>
+        <span class="news-text">Received the Best Student Paper Award at <b>INTERSPEECH</b>, <i>Czech Republic</i>.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date mono">December 2018</span>
+        <span class="news-text">My first poster presentation at <b>CLiC-it</b>, <i>Italy</i>.</span>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <div class="pub-card">
+      <p class="pub-title">Human Speech Perception in Noise: Can Large Language Models Paraphrase to Improve It?</p>
+      <p class="pub-authors"><b>Chingacham, Anupama</b> and Zhang, Miaoran and Demberg, Vera and Klakow, Dietrich</p>
+      <p class="pub-venue">To appear in Proceedings of the Human-Centered Large Language Modeling Workshop <b>(HuCLLM @ ACL)</b>, 2024</p>
+      <div class="pub-links">
+        <a href="https://aclanthology.org/2024.hucllm-1.1.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <p class="pub-title">A Data-Driven Investigation of Noise-Adaptive Utterance Generation with Linguistic Modification</p>
+      <p class="pub-authors"><b>Chingacham, Anupama</b> and Demberg, Vera and Klakow, Dietrich</p>
+      <p class="pub-venue">Ninth IEEE Spoken Language Technology Workshop, 2023</p>
+      <div class="pub-links">
+        <a href="https://www.semanticscholar.org/reader/21484c4d5ca10a9d9d04c171aa37090a1efb3a24" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <p class="pub-title">Exploring the Potential of Lexical Paraphrases for Mitigating Noise-Induced Comprehension Errors</p>
+      <p class="pub-authors"><b>Chingacham, Anupama</b> and Demberg, Vera and Klakow, Dietrich</p>
+      <p class="pub-venue">22nd INTERSPEECH Conference, 2021</p>
+      <div class="pub-links">
+        <a href="https://www.isca-archive.org/interspeech_2021/chingacham21_interspeech.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <p class="pub-title">Generalizing Representations of Lexical Semantic Relations</p>
+      <p class="pub-authors"><b>Chingacham, Anupama</b> and Paperno, Denis</p>
+      <p class="pub-venue">Fifth Italian Conference on Computational Linguistics, 2018</p>
+      <div class="pub-links">
+        <a href="https://aclanthology.org/2018.clicit-1.21.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Collaborate</h2>
+    <p>Interested in building human-centered AI systems, research in speech and language processing ? <br> I'd like to hear from you! </p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:achingacham@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://scholar.google.com/citations?user=TTyMz08AAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a class="btn ghost" href="https://github.com/achingacham" target="_blank" rel="noopener">GitHub</a>
+      <!-- TODO 3: <a class="btn ghost" href="#">ORCID</a> -->
+    </div>
+    <p class="copyright">&copy; Anupama Chingacham &middot; built with Jekyll &amp; GitHub Pages</p>
+  </div>
+</footer>
+
+</body>
 </html>
